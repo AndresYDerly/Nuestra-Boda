@@ -72,36 +72,32 @@
     
     // La función que va a verificar nuestro código contra el CSV
     function verificarCodigo() {
-        const codigo = document.getElementById('codigoInput').value.trim();
-        if (!codigo) {
-            mostrarError("Por favor, introduce un código.");
-            return;
-        }
-
-        // Verificar si se cargaron datos del CSV
-        if (datosCSV.length === 0) {
-            mostrarError("La lista de invitados no está disponible en este momento. Por favor, intenta más tarde.");
-            return;
-        }
-
-        // Buscar el código en los datos
-        const invitacion = datosCSV.find(fila => fila[0] === codigo);
-        
-        if (invitacion) {
-            // Guardar los datos de la invitación en sessionStorage
-            sessionStorage.setItem('codigoVerificado', 'true');
-            sessionStorage.setItem('invitacionDatos', JSON.stringify({
-                codigo: invitacion[0],
-                nombre: invitacion[1],
-                numeroInvitados: invitacion[2]
-            }));
-            
-            // Redirigir a la página 2
-            window.location.href = 'Invitacion.html';
-        } else {
-            mostrarError("Código no válido. Por favor, verifica e intenta nuevamente.");
-        }
+    const codigo = document.getElementById('codigoInput').value.trim().toLowerCase();
+    if (!codigo) {
+        mostrarError("Por favor, introduce un código.");
+        return;
     }
+
+    if (datosCSV.length === 0) {
+        mostrarError("La lista de invitados no está disponible en este momento. Por favor, intenta más tarde.");
+        return;
+    }
+
+    const invitacion = datosCSV.find(fila => fila[0].toLowerCase() === codigo);
+    
+    if (invitacion) {
+        sessionStorage.setItem('codigoVerificado', 'true');
+        sessionStorage.setItem('invitacionDatos', JSON.stringify({
+            codigo: invitacion[0],
+            nombre: invitacion[1],
+            numeroInvitados: invitacion[2]
+        }));
+        window.location.href = 'Invitacion.html';
+    } else {
+        mostrarError("Código no válido. Por favor, verifica e intenta nuevamente.");
+    }
+}
+
 
     function mostrarError(mensaje) {
         const errorDiv = document.getElementById('mensajeError');
