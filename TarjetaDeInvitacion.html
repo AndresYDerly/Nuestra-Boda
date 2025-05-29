@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Invitación</title>
+      <link rel="stylesheet" href="style2.css">
+    <style>
+        /* El contenedor principal estará oculto hasta que pase la verificación */
+        #contenidoPrincipal {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Contenedor principal que solo se mostrará tras la verificación -->
+     <section id="contenidoPrincipal">
+        <div id="portada">
+            <img src="DYA.png" alt="Andres & Derly">
+        </div>
+    <div id="grid-container">
+        <div id="text1">
+            <h1>Más valen dos que uno, pues mayor provecho obtienen de su trabajo. Y si uno de ellos cae, el otro lo levanta. Uno solo puede ser vencido, pero dos podrán resistir. La cuerda de tres hilos no rompe fácilmente.</h1>
+        </div>
+        <div class="countdown-container">
+        <p class="countdown-title">TE ESPERAMOS EL DÍA</p>
+        <h2 class="countdown-date">11 de Julio 2025 - 4:00 pm</h2>
+            <div class="countdown">
+                <div class="time">
+                <span id="days">0</span>
+                <p>Días</p>
+                </div>
+                <span class="separator">:</span>
+                <div class="time">
+                <span id="hours">0</span>
+                <p>Hs</p>
+                </div>
+                <span class="separator">:</span>
+                <div class="time">
+                <span id="minutes">0</span>
+                <p>Min</p>
+                </div>
+                <span class="separator">:</span>
+                <div class="time">
+                <span id="seconds">0</span>
+                <p>Seg</p>
+                </div>
+            </div>
+        </div>
+        <div id="text3">
+            <img src="Iglesia.png" alt="">
+            <h1>CEREMONIA</h1>
+            <p>4:00 pm, en la Hacienda Remanso del Rio </p>
+            <a href="https://www.google.com/maps/dir//Madrid,+Cundinamarca/@4.8412043,-74.2916287,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8e3f8025a0f514b3:0x3feadd2a5cca1a3e!2m2!1d-74.2092267!2d4.8412093?entry=ttu&g_ep=EgoyMDI1MDUyNi4wIKXMDSoASAFQAw%3D%3D">
+                <button>¿CÓMO LLEGAR?</button>
+            </a>
+        </div>
+        <div id="text4">
+            <img src="Gala.png" alt="">
+            <p>Nuestra boda se viste de gala</p>
+            <h1>¡Y TÚ TAMBIÉN!</h1>
+            <p2>Nos reservamos el color AZUL GALA U OSCURO</p2>
+        </div>
+        <div id="text5">
+            <img src="SobreB.png" alt="SobreImg">
+            <h1>Lluvia de Sobres</h1>
+        </div>
+        <div id="text6">
+            <img src="Acepta.png" alt="">
+            <p>¡Dile "SÍ ACEРТО"</p>
+            <p> a nuestra invitación!</p>
+            <a href="https://wa.link/rl7tci">
+                <button>¡CONFIRMAR ASISTENCIA!</button>
+            </a>
+        </div>
+        <div id="foto">
+            <img src="Si.png" alt="Sí, quiero, para siempre contigo.">
+        </div>
+        <div id="text7">
+            <img src="tips.png" alt="">
+            <h1>RECUERDA</h1>
+            <p>✶ Los niños felices en su camita…</p>
+            <p>✶ La única que puede hacerse esperar es la novia</p>
+        </div>
+        <div id="text3">
+            <img src="Camara.png" alt="">
+            <h2>¡Revive la magia de nuestro gran día!</h2>
+            <p>Comparte tus fotos en nuestro álbum de Google Drive</p>
+            <a href="https://wa.link/rl7tci">
+                <button>SUBIR FOTOS</button>
+            </a>
+        </div>
+        <div id="final">
+            <h1>¡Gracias por ser parte de este capitulo tan importante de nuestras vidas!</h1>
+        </div>
+    </div>
+    <div id="portada">
+            <img src="DYA.png" alt="Andres & Derly">
+        </div>
+     </section>
+    <script>
+        // Script de verificación
+        window.onload = function() {
+            // Verificar si el usuario ha completado el proceso
+            const codigoVerificado = sessionStorage.getItem('codigoVerificado');
+            const pasoPagina2 = sessionStorage.getItem('pasoPagina2');
+            
+            // Si no ha completado el proceso, mostrar alert y redirigir
+            if (!codigoVerificado || codigoVerificado !== 'true' || !pasoPagina2 || pasoPagina2 !== 'true') {
+                alert("Debes verificar tu código de invitación primero");
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Si pasó la verificación, mostrar el contenido
+            document.getElementById('contenidoPrincipal').style.display = 'block';
+        }
+    </script>
+    <script>
+  const countdownDate = new Date("July 11, 2025 16:00:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+
+    if (distance <= 0) {
+      document.querySelector(".countdown").innerHTML = "¡Ya llegó el día!";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>

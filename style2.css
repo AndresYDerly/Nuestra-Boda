@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+/* Regla global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif ;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Portada a pantalla completa */
+#portada {
+    width: 100%;
+}
+
+#portada img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 100%;
+    margin-bottom: 2%;
+}
+#text1{
+    background-color: #1a2b3d;
+    padding: 2em 0;
+    color: azure;
+    justify-content: center;
+}
+#text1 h1{
+    text-align: center;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+
+.countdown-container {
+  text-align: center;
+  padding: 3em 4em;
+}
+
+.countdown-title {
+  color: #000000;
+  margin-bottom: 1em;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: large;
+  
+}
+
+.countdown-date {
+  font-size: 2em;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: space-around;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time span {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.separator {
+  font-size: 3em;
+  margin: 0 5px;
+  color: #000;
+}
+
+.time p {
+  margin: 0;
+  font-size: 1em;
+  color: #000000;
+}
+
+#text3{
+  background-color: #b2bacf;
+  color: #1a2b3d;
+  text-align: center;
+}
+
+#text3 h1{
+  margin: 4%;
+}
+#text3 p{
+  font-size: 1.2em;
+}
+#text3 img{
+  margin-top: 6%;
+  width: 40%;
+}
+#text3 button{
+  padding: 12px 24px;
+  margin: 4%;
+  background-color: #1a2b3d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  
+}
+
+#text4 {
+  color: #1a2b3d;
+  text-align: center;
+  padding-bottom: 6%;
+}
+
+#text4 h1{
+  margin: 4%;
+}
+#text4 p{
+  font-size: 1.2em;
+}
+#text4 p2{
+  background-color: #1a2b3d;
+  color: aliceblue;
+  border-radius: 8Px;
+  padding: 0.2em;
+  margin-bottom: 6%;
+}
+#text4 img{
+  margin-top: 6%;
+  width: 40%;
+}
+
+#text5{
+  background-color: #1a2b3d;
+  color: aliceblue;
+  text-align: center;
+}
+#text5 img{
+  margin-top: 6%;
+  width: 40%;
+}
+#text5 h1{
+  padding-bottom: 5%;
+}
+
+#text6{
+  color: #1a2b3d;
+  text-align: center;
+}
+
+#text6 h1{
+  margin: 4%;
+}
+#text6 p{
+  font-size: 1.2em;
+}
+#text6 img{
+  margin-top: 6%;
+  width: 40%;
+}
+#text6 button{
+  padding: 12px 24px;
+  margin: 4%;
+  background-color: #1a2b3d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  
+}
+#foto {
+    width: 100%;
+}
+#foto img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 100%;
+
+}
+#text7{
+  color: #1a2b3d;
+  text-align: center;
+  padding: 5%;
+
+}
+#text7 img{
+  width: 40%;
+}
+#text7 h1{
+  padding-bottom: 2%;
+}
+
+#final{
+  background-color: #1a2b3d;
+  color: aliceblue;
+  text-align: center;
+  padding: 5%;
+}
+/* Contenedor de error */
+.error-container {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 500px;
+    padding: 20px;
+    border: 1px solid #f44336;
+    border-radius: 5px;
+    background-color: #ffebee;
+    display: none;
+}
+
+.error-message {
+    color: #f44336;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Botones */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Contenedor de la tarjeta (oculto por defecto) */
+#tarjetaContainer {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+/* Contenedor general en grid */
+#grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+/* En pantallas grandes (computadoras) */
+@media (min-width: 768px) {
+    #grid-container {
+        grid-template-columns: repeat(5, 1fr);
+
+    }
+
+    #grid-container div {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;    
+    }
+
+    /* Opcional: imágenes responsivas dentro de cada div */
+    #grid-container div img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Responsive: contenedores más anchos en pantallas grandes */
+@media (min-width: 768px) {
+    .container {
+        width: 400px;
+        margin: 0 auto;
+    }
+}
